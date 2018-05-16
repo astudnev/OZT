@@ -44,7 +44,6 @@ var dict = [];
 var dictIced = [];
 var multDecimals = 1000000000000000000
 
-var vv = lines[10].split(",");
 
 var vmatchOK = []
 var vmatchErr = []

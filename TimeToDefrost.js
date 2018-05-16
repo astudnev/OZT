@@ -20,7 +20,7 @@ console.log('contractAddress = ' + contractAddress)
 
 
 
-const NaviToken = require('./build/contracts/NaviToken.json');
+const NaviToken = require('./build/contracts/OZTToken.json');
 const Web3 = require('web3');
 
 let web3 = new Web3(new Web3.providers.HttpProvider(urlEthereumNode))
@@ -39,7 +39,7 @@ naviContract = web3.eth.contract(NaviToken.abi).at(contractAddress);
 //check we can defrost  (blockchain timestamp > )
 var startico = naviContract.getStartIcoTimestamp();
 console.log('------------------->>  startico = ' + startico)
-var rightnow = naviContract.getNow();
+var rightnow = naviContract.getBlockTimestamp();
 console.log('------------------->>  rightnow = ' + rightnow)
 
 var diff_minutes = (rightnow - startico)/60;
@@ -50,10 +50,8 @@ if(diff_minutes<0){
 }else{
     var monthsElapsed = naviContract.elapsedMonthsFromICOStart();
     console.log('------------------->>  monthsElapsed From ICO Start = ' + monthsElapsed)
-    var canDefrostEquities = naviContract.canDefrostEquities();
-    console.log('------------------->>  canDefrost Equities = ' + canDefrostEquities)
-    var canDefrostTeamAndAdvisors = naviContract.canDefrostEquities();
-    console.log('------------------->>  canDefrost TeamAndAdvisors = ' + canDefrostTeamAndAdvisors)
+    var canDefrost = naviContract.canDefrost();
+    console.log('------------------->>  canDefrost  = ' + canDefrost)
 }
 
 

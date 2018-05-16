@@ -36,27 +36,37 @@ objAssignParams = new AssignObject(chunkSize,ACCOUNTSAMOUNTS_FILEPATH,assignInte
 console.log('contractaddress =  ' + objAssignParams.contractaddress + ' owner pwd = ' + objAssignParams.accountpwd );
 
 const OZTToken = require('./build/contracts/OZTToken.json');
-const Web3 = require('web3');
-web3 = new Web3(new Web3.providers.HttpProvider(urlEthereumNode))
+
+const MNEMONICS_FILEPATH = path.resolve(__dirname) + '/PARAMS/mnemonics.txt'
+const Web3 = require('web3')
+const ProviderEngine = require('web3-provider-engine');
+const Web3Subprovider = require("web3-provider-engine/subproviders/web3.js");
+const WalletSubprovider = require('web3-provider-engine/subproviders/wallet.js');
+const HDKey = require('ethereumjs-wallet/hdkey');
+var eth = require('ethereumjs-wallet');
+const BIP39 = require('bip39');
+
+var mnemonics = require('fs').readFileSync(MNEMONICS_FILEPATH, 'utf-8')
+var wallet = HDKey.fromMasterSeed(BIP39.mnemonicToSeed(mnemonics)).derivePath("m/44'/60'/0'/0/0").getWallet();
+
+var engine = new ProviderEngine();
+
+engine.addProvider(new WalletSubprovider(wallet, {}));
+engine.addProvider(new Web3Subprovider(new Web3.providers.HttpProvider(urlEthereumNode)));
+engine.start();
+
+var web3 = new Web3(engine);
+
+console.log('Web3 OK, connected to '+wallet.getAddressString());
+
+
+
 
 var ACTIONS_PATH = "./ACTIONS"
 var LOGS_PATH = "./LOGS/"
 
 var oztContract = web3.eth.contract(OZTToken.abi).at(contractAddress);
-console.log('oztContract = ' + oztContract)
-console.log('abi = ' + OZTToken.abi)
-oztContract.getAddressBalance( web3.eth.accounts[0], function(error, result){
-    if (!error) {
-        console.log("OWNER: getAddressBalance worked : " + result);          
-    } else {
-        console.log(error);
-    }
-});
 
-// unlock ethereum base account (unless we are on testrpc)
-//web3.personal.unlockAccount(web3.eth.accounts[0], ownerPassword)
-console.log('unlockAccount OK')
-web3.eth.defaultAccount = web3.eth.accounts[0];
 
 // read account/amounts file to assign -------------------------------------------------
 vAccounts  = require('fs').readFileSync(ACCOUNTSAMOUNTS_FILEPATH).toString().split('\n')
@@ -149,7 +159,7 @@ function sendAssignChunkToSmartContract(contractAddress, accountPwd, vaddr, vamo
     }
     console.log("gasOk = " + gasOk );*/
 
-    oztContract.batchAssignTokens(vaddr, vamounts, vclass, { gas: 999000 },  function(error, result){
+    oztContract.batchAssignTokens(vaddr, vamounts, vclass, { gas: 999000, from: wallet.getAddressString() },  function(error, result){
             if (!error) {
                 console.log("batchAssignTokens2Arrays OK:" + result);  // OK
             } else {
