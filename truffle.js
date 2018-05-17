@@ -28,8 +28,8 @@ module.exports = {
                     mnemonic = prompt('Enter mnemonic for FOUNDATION network:');
                 return new HDWalletProvider(mnemonic, "https://mainnet.infura.io/aaIrr36iBro3mIVCdWrg");
             },
-            network_id: '3',
-            gas: 4700000
+            network_id: '1',
+            gas: 1600000
         }
     },
     solc: {
