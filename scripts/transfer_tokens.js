@@ -12,7 +12,7 @@ var connection = new Connection(mnemonics, environment);
 var deployed_token = connection.web3.eth.contract(ozt_token.abi).at(connection.config.token);
 
 var amount = cli.question('Enter amount of tokens to transfer in '+environment + ': ');
-var destination = cli.question('Enter destination to transfer to : ');
+var destination = cli.question('Enter destination to transfer '+connection.web3.toWei(amount)+' WEI to : ');
 
 var gasprice = cli.question('Enter gas price in gwei:');
 var yesno = cli.question('Enter Yes! to continue in '+environment+ ' with these parameters: ');
@@ -22,7 +22,7 @@ if(yesno!='Yes!'){
 }
 console.log('generating now...');
 
-deployed_token.transfer.sendTransaction( connection.config.creator,
+deployed_token.transfer.sendTransaction(
             destination,
             connection.web3.toWei(amount) , {
         from: connection.address,
