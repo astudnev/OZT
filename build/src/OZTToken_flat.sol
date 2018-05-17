@@ -1,4 +1,4 @@
-pragma solidity ^0.4.23;
+pragma solidity ^0.4.13;
 
 contract ERC20Basic {
   uint256 public totalSupply;
@@ -237,6 +237,7 @@ contract OZTToken is StandardToken, Ownable {
 		assignedSupply = 0;
 
 		// mint all tokens
+		totalSupply = MAX_NUM_OZT_TOKENS;
         balances[msg.sender] = MAX_NUM_OZT_TOKENS;
         Transfer(address(0x0), msg.sender, MAX_NUM_OZT_TOKENS);
 	}

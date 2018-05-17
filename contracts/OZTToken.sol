@@ -46,6 +46,7 @@ contract OZTToken is StandardToken, Ownable {
 		assignedSupply = 0;
 
 		// mint all tokens
+		totalSupply = MAX_NUM_OZT_TOKENS;
         balances[msg.sender] = MAX_NUM_OZT_TOKENS;
         Transfer(address(0x0), msg.sender, MAX_NUM_OZT_TOKENS);
 	}
