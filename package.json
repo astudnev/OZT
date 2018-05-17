@@ -9,6 +9,8 @@
   "dependencies": {
     "ganache-cli": "^6.0.3",
     "prompt-sync": "^4.1.5",
+    "readline-sync": "^1.4.7",
+    "request": "^2.83.0",
     "truffle": "^4.0.4",
     "truffle-hdwallet-provider": "^0.0.3",
     "zeppelin-solidity": "^1.4.0"

@@ -2,7 +2,7 @@ module.exports = {
     ropsten: {
         url: 'https://ropsten.infura.io/aaIrr36iBro3mIVCdWrg',
         creator: '0x8cdef1e287a4ea21982de8dc7d4f8c0ae75f94ed',
-        token: '0xd4983ea03b5b2d43bd6e3f94b6c1ad90c196b99e'
+        token: '0xc47f91d5acc5bc644bb2829c4ecd49a8c2dd7f1c'
     },
     foundation: {
         url: 'https://mainnet.infura.io/aaIrr36iBro3mIVCdWrg',
