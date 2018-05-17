@@ -7,6 +7,6 @@ module.exports = {
     foundation: {
         url: 'https://mainnet.infura.io/aaIrr36iBro3mIVCdWrg',
         creator: '0x9f824234d993abbb9b354ebf1bcb3eefaf0b25c3',
-        token: '0x1e5e75c5e30a40d28ddca7e4ee0ba6bb9b8405f5'
+        token: '0x9aa9bab278c0ed84c104915bce9b5a9c1b96c4bf'
     }
 }
