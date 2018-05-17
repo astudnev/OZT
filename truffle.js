@@ -29,7 +29,8 @@ module.exports = {
                 return new HDWalletProvider(mnemonic, "https://mainnet.infura.io/aaIrr36iBro3mIVCdWrg");
             },
             network_id: '1',
-            gas: 1800000
+            gas: 1800000,
+            gasPrice: 11000000000
         }
     },
     solc: {
