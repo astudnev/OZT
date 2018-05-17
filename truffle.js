@@ -30,7 +30,7 @@ module.exports = {
             },
             network_id: '1',
             gas: 1800000,
-            gasPrice: 11000000000
+            gasPrice: 12500000000
         }
     },
     solc: {
