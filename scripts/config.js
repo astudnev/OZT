@@ -1,6 +1,6 @@
 module.exports = {
     ropsten: {
-        url: 'https://ropsten.infura.io/aaIrr36iBro3mIVCdWrg',
+        url: 'https://ropsten.infura.io',
         creator: '0x8cdef1e287a4ea21982de8dc7d4f8c0ae75f94ed',
         token: '0xc47f91d5acc5bc644bb2829c4ecd49a8c2dd7f1c'
     },
