@@ -7,7 +7,7 @@ The project contains:
 3) Supporting scripts
 
 
-## OZT Token Smart Contract
+### OZT Token Smart Contract
 
 OZT token is standard ERC-20 token with 18 decimals. 
  
@@ -22,7 +22,7 @@ Sources are located in [OZTTokenSale.sol](contracts/OZTTokenSale.sol).
 
 ### Production ( Ethereum Foundation network) deployment scripts
 
-Note:  scripts are run by the contract's owner
+Note:  scripts are to be run by the contract's owner
 
 **node script/transfer_tokens** - transfer tokens from the OZT Token owner to address
 

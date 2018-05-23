@@ -10,7 +10,7 @@ module.exports = function(deployer, network) {
         token = instance;
 
         var openingTime, closingTime;
-        var now = new Date().getTime();
+        var now = new Date().getTime()/1000;
         switch(network){
             case 'development':
                 openingTime = now + 3;
@@ -33,7 +33,7 @@ module.exports = function(deployer, network) {
             5269,                                           //uint256 _rate,
             '0xDDFe42ddB9C406B9143d85F294583E0F1c00c223',   //address _wallet,
             token.address,                                  //ERC20 _token,
-            1000                                            // uint256 _min_token_amount_sale
+            1000*1e18                                       // uint256 _min_token_amount_sale
             );
 
 
