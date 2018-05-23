@@ -2,7 +2,7 @@ const path = require('path');
 const fs = require('fs');
 
 
-const OZTToken = require('./build/contracts/OZTToken.json');
+const OZTToken = require('../../build/contracts/OZTToken.json');
 const Web3 = require('web3');
 
 // LOAD PARAMETERS --------------------------------

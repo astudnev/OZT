@@ -35,7 +35,7 @@ objAssignParams = new AssignObject(chunkSize,ACCOUNTSAMOUNTS_FILEPATH,assignInte
 
 console.log('contractaddress =  ' + objAssignParams.contractaddress + ' owner pwd = ' + objAssignParams.accountpwd );
 
-const OZTToken = require('./build/contracts/OZTToken.json');
+const OZTToken = require('../../build/contracts/OZTToken.json');
 
 const MNEMONICS_FILEPATH = path.resolve(__dirname) + '/PARAMS/mnemonics.txt'
 const Web3 = require('web3')

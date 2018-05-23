@@ -1,8 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 
-
-const OZTToken = require('./build/contracts/OZTToken.json');
+const OZTToken = require('../../build/contracts/OZTToken.json');
 const Web3 = require('web3');
 
 // LOAD PARAMETERS --------------------------------
@@ -38,12 +37,27 @@ var lines = require('fs').readFileSync(ACCOUNTSAMOUNTS_FILEPATH, 'utf-8').split(
 
 var vmatchOK = []
 var vmatchErr = []
-var totalAssigned = parseInt(0)
 
 var dict = [];
 var dictIced = [];
+
 var multDecimals = 1000000000000000000
 
+//var vv = lines[10].split(",");
+
+
+oztContract.getAddressAndBalance.call('0x627306090abaB3A6e1400e9345bC60c78a8BEf57', function(error, result){
+        if (!error) {
+            retAddress = result[0];
+            retAmount = result[1];
+            console.log("getAddressBalance OWNER called : " + retAmount + " tokens found for " + retAddress);
+            console.log("---------------------------------------------------------------------");
+            console.log("---------------------------------------------------------------------");
+
+        } else {
+            console.log("getAddressBalance OWNER ERROR  :" +error);
+        }
+});
 
 var vmatchOK = []
 var vmatchErr = []
@@ -57,13 +71,13 @@ for (var i=0; i<lines.length; i++) {
     dict[userAddress] = userAmount;    
     var classInvestor = parseInt(vv[2]);
 
-    console.log(userAddress  + " - classInvestor = " + classInvestor )
+    console.log(userAddress  + " -> classInvestor = " + classInvestor )
 
-    if(classInvestor == 1 ){ // iced only (reserve and team + advisors)
+    if(classInvestor == 0){ // not iced
         
         totalAssignedOnFile += parseInt(vv[1]);
-        oztContract.getAddressAndBalance.call(userAddress, function(error, result){
 
+        oztContract.getAddressAndBalance.call(userAddress, function(error, result){
             if (!error) {
 
                 retAddress = result[0];
@@ -73,10 +87,10 @@ for (var i=0; i<lines.length; i++) {
 
                 if( retAmount == dict[retAddress] ){
                     totalAssignedOnEth += (retAmount / multDecimals)
-                    var strOk = retAddress + "  -  AMOUNT MATCHING OK = " + retAmount + " ->  numTokensAssigned = " + totalAssigned;                    
+                    var strOk = retAddress + "  -  AMOUNT MATCHING OK = " + retAmount + " ->  numTokensAssigned = " + totalAssignedOnEth;                    
                     vmatchOK.push(strOk)
                 }else{
-                    var strErr = "!!!!  ERROR ERROR ERROR:  " + dict[retAddress] + "  -  amount MISMATCH ERROR = " + retAmount;
+                    var strErr = "!!!!  INVESTOR INVESTOR ERROR ERROR ERROR:  " + dict[retAddress] + "  -  amount MISMATCH ERROR = " + retAmount;
                     console.log(strErr)
                     vmatchErr.push(strErr)
                 }
@@ -84,6 +98,34 @@ for (var i=0; i<lines.length; i++) {
                 console.log(error);
             }
         });
+    } 
+    else // iced
+    {
+        /*dictIced[userAddress] = userAmount;
+        oztContract.getIcedInfos(userAddress, function(error, result){
+            if (!error) {
+                icedAddr = result[0];
+		        balance = parseInt(result[1]);
+                frosted = parseInt(result[2]);
+                defrosted = parseInt(result[3]);
+		        balanceAttendue = parseInt(dictIced[icedAddr]) * 20 / 100
+
+		        //console.log("dictIced[icedAddr] = " + parseInt(dictIced[icedAddr]))
+                console.log("getIcedInfos called => balanceAttendue: " + balanceAttendue + " - balance: " + balance + ", frosted: " + frosted + ", defrosted: " + defrosted); 
+		
+                if( balance === balanceAttendue ){
+                    totalAssigned +=((frosted + defrosted)*multDecimals)
+                    var strOk = icedAddr + "  -  AMOUNT MATCHING OK = " + balance + " ->  numTokensAssigned = " + totalAssigned;                    
+                    vmatchOK.push(strOk)
+                }else{
+                    var strErr = "!!!!  ICED ICED ERROR ERROR ERROR:  " + userAddress+ "  - amount MISMATCH ERROR = " + balance + " attendue = " + balanceAttendue;
+                    console.log(strErr)
+                    vmatchErr.push(strErr)
+                }
+            } else {
+                console.log(error);
+            }
+        });*/
     }
    
   }

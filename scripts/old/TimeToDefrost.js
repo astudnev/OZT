@@ -20,7 +20,7 @@ console.log('contractAddress = ' + contractAddress)
 
 
 
-const NaviToken = require('./build/contracts/OZTToken.json');
+const NaviToken = require('../../build/contracts/OZTToken.json');
 const Web3 = require('web3');
 
 let web3 = new Web3(new Web3.providers.HttpProvider(urlEthereumNode))

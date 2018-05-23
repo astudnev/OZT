@@ -22,7 +22,7 @@ console.log('contractAddress = ' + contractAddress)
 
 
 
-const OZTToken = require('./build/contracts/OZTToken.json');
+const OZTToken = require('../../build/contracts/OZTToken.json');
 const Web3 = require('web3');
 
 let web3 = new Web3(new Web3.providers.HttpProvider(urlEthereumNode))
