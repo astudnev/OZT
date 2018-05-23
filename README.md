@@ -9,7 +9,7 @@ The project contains:
 
 ## OZT Token Smart Contract
 
-IZX token is standard ERC-20 token with 18 decimals. 
+OZT token is standard ERC-20 token with 18 decimals. 
  
 Sources are located in [OZTToken.sol](contracts/OZTToken.sol).
 
