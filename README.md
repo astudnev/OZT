@@ -45,7 +45,7 @@ Note:  scripts are to be run by the contract's owner
 
 ```
 npm install -g ethereumjs-testrpc
-npm install -g truffle
+npm install -g truffle@4.1.8
 npm install -g web3-provider-engine
 npm install -g ethereumjs-wallet
 ```

@@ -36,10 +36,10 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x6060604052341561000f57600080fd5b60008054600160a060020a033316600160a060020a03199091161790556101888061003b6000396000f30060606040526004361061004b5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416638da5cb5b8114610050578063f2fde38b1461008c575b600080fd5b341561005b57600080fd5b6100636100ba565b60405173ffffffffffffffffffffffffffffffffffffffff909116815260200160405180910390f35b341561009757600080fd5b6100b873ffffffffffffffffffffffffffffffffffffffff600435166100d6565b005b60005473ffffffffffffffffffffffffffffffffffffffff1681565b6000543373ffffffffffffffffffffffffffffffffffffffff9081169116146100fe57600080fd5b73ffffffffffffffffffffffffffffffffffffffff8116151561012057600080fd5b6000805473ffffffffffffffffffffffffffffffffffffffff191673ffffffffffffffffffffffffffffffffffffffff929092169190911790555600a165627a7a72305820d958cb7e3b923dcc01d8969177c319f4e1bd2ce86b174edecf81fb24cb1c3ed80029",
-  "deployedBytecode": "0x60606040526004361061004b5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416638da5cb5b8114610050578063f2fde38b1461008c575b600080fd5b341561005b57600080fd5b6100636100ba565b60405173ffffffffffffffffffffffffffffffffffffffff909116815260200160405180910390f35b341561009757600080fd5b6100b873ffffffffffffffffffffffffffffffffffffffff600435166100d6565b005b60005473ffffffffffffffffffffffffffffffffffffffff1681565b6000543373ffffffffffffffffffffffffffffffffffffffff9081169116146100fe57600080fd5b73ffffffffffffffffffffffffffffffffffffffff8116151561012057600080fd5b6000805473ffffffffffffffffffffffffffffffffffffffff191673ffffffffffffffffffffffffffffffffffffffff929092169190911790555600a165627a7a72305820d958cb7e3b923dcc01d8969177c319f4e1bd2ce86b174edecf81fb24cb1c3ed80029",
-  "sourceMap": "217:643:4:-;;;380:48;;;;;;;;405:5;:18;;-1:-1:-1;;;;;413:10:4;405:18;-1:-1:-1;;;;;;405:18:4;;;;;;217:643;;;;;;",
-  "deployedSourceMap": "217:643:4:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;238:20;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;738:119;;;;;;;;;;;;;;;;;;238:20;;;;;;:::o;738:119::-;558:5;;544:10;558:5;544:19;;;558:5;;544:19;536:28;;;;;;807:22;;;;;799:31;;;;;;836:5;:16;;-1:-1:-1;;836:16:4;;;;;;;;;;;;738:119::o",
+  "bytecode": "0x608060405234801561001057600080fd5b5060008054600160a060020a033316600160a060020a031990911617905561018c8061003d6000396000f30060806040526004361061004b5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416638da5cb5b8114610050578063f2fde38b1461008e575b600080fd5b34801561005c57600080fd5b506100656100be565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b34801561009a57600080fd5b506100bc73ffffffffffffffffffffffffffffffffffffffff600435166100da565b005b60005473ffffffffffffffffffffffffffffffffffffffff1681565b6000543373ffffffffffffffffffffffffffffffffffffffff90811691161461010257600080fd5b73ffffffffffffffffffffffffffffffffffffffff8116151561012457600080fd5b6000805473ffffffffffffffffffffffffffffffffffffffff191673ffffffffffffffffffffffffffffffffffffffff929092169190911790555600a165627a7a72305820a9eee135e2d3f81030b9613f21e2782a9ef90d75f63a9284030d4c478250ddb40029",
+  "deployedBytecode": "0x60806040526004361061004b5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416638da5cb5b8114610050578063f2fde38b1461008e575b600080fd5b34801561005c57600080fd5b506100656100be565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b34801561009a57600080fd5b506100bc73ffffffffffffffffffffffffffffffffffffffff600435166100da565b005b60005473ffffffffffffffffffffffffffffffffffffffff1681565b6000543373ffffffffffffffffffffffffffffffffffffffff90811691161461010257600080fd5b73ffffffffffffffffffffffffffffffffffffffff8116151561012457600080fd5b6000805473ffffffffffffffffffffffffffffffffffffffff191673ffffffffffffffffffffffffffffffffffffffff929092169190911790555600a165627a7a72305820a9eee135e2d3f81030b9613f21e2782a9ef90d75f63a9284030d4c478250ddb40029",
+  "sourceMap": "217:643:4:-;;;380:48;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;405:5:4;:18;;-1:-1:-1;;;;;413:10:4;405:18;-1:-1:-1;;;;;;405:18:4;;;;;;217:643;;;;;;",
+  "deployedSourceMap": "217:643:4:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;238:20;;8:9:-1;5:2;;;30:1;27;20:12;5:2;238:20:4;;;;;;;;;;;;;;;;;;;;;;;738:119;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;738:119:4;;;;;;;;;238:20;;;;;;:::o;738:119::-;558:5;;544:10;558:5;544:19;;;558:5;;544:19;536:28;;;;;;807:22;;;;;799:31;;;;;;836:5;:16;;-1:-1:-1;;836:16:4;;;;;;;;;;;;738:119::o",
   "source": "pragma solidity ^0.4.11;\n\n\n/**\n * @title Ownable\n * @dev The Ownable contract has an owner address, and provides basic authorization control\n * functions, this simplifies the implementation of \"user permissions\".\n */\ncontract Ownable {\n  address public owner;\n\n\n  /**\n   * @dev The Ownable constructor sets the original `owner` of the contract to the sender\n   * account.\n   */\n  function Ownable() {\n    owner = msg.sender;\n  }\n\n\n  /**\n   * @dev Throws if called by any account other than the owner.\n   */\n  modifier onlyOwner() {\n    require(msg.sender == owner);\n    _;\n  }\n\n\n  /**\n   * @dev Allows the current owner to transfer control of the contract to a newOwner.\n   * @param newOwner The address to transfer ownership to.\n   */\n  function transferOwnership(address newOwner) onlyOwner {\n    require(newOwner != address(0));\n    owner = newOwner;\n  }\n\n}\n",
   "sourcePath": "/Users/studnev/audit/OZT-studnev/contracts/Ownable.sol",
   "ast": {
@@ -139,7 +139,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1209,
+                        "referencedDeclaration": 1211,
                         "src": "413:3:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -228,7 +228,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1209,
+                            "referencedDeclaration": 1211,
                             "src": "544:3:4",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -281,8 +281,11 @@
                       "id": 767,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [],
-                      "referencedDeclaration": 1212,
+                      "overloadedDeclarations": [
+                        1214,
+                        1215
+                      ],
+                      "referencedDeclaration": 1214,
                       "src": "536:7:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -436,8 +439,11 @@
                       "id": 783,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [],
-                      "referencedDeclaration": 1212,
+                      "overloadedDeclarations": [
+                        1214,
+                        1215
+                      ],
+                      "referencedDeclaration": 1214,
                       "src": "799:7:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -517,7 +523,7 @@
             "isDeclaredConst": false,
             "modifiers": [
               {
-                "arguments": [],
+                "arguments": null,
                 "id": 781,
                 "modifierName": {
                   "argumentTypes": null,
@@ -688,7 +694,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1209,
+                        "referencedDeclaration": 1211,
                         "src": "413:3:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -777,7 +783,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1209,
+                            "referencedDeclaration": 1211,
                             "src": "544:3:4",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -830,8 +836,11 @@
                       "id": 767,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [],
-                      "referencedDeclaration": 1212,
+                      "overloadedDeclarations": [
+                        1214,
+                        1215
+                      ],
+                      "referencedDeclaration": 1214,
                       "src": "536:7:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -985,8 +994,11 @@
                       "id": 783,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [],
-                      "referencedDeclaration": 1212,
+                      "overloadedDeclarations": [
+                        1214,
+                        1215
+                      ],
+                      "referencedDeclaration": 1214,
                       "src": "799:7:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -1066,7 +1078,7 @@
             "isDeclaredConst": false,
             "modifiers": [
               {
-                "arguments": [],
+                "arguments": null,
                 "id": 781,
                 "modifierName": {
                   "argumentTypes": null,
@@ -1142,9 +1154,9 @@
   },
   "compiler": {
     "name": "solc",
-    "version": "0.4.21+commit.dfe3193c.Emscripten.clang"
+    "version": "0.4.23+commit.124ca40d.Emscripten.clang"
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-05-24T09:05:44.260Z"
+  "updatedAt": "2018-05-24T18:54:09.898Z"
 }

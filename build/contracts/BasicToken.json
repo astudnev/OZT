@@ -80,10 +80,10 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x6060604052341561000f57600080fd5b6102208061001e6000396000f3006060604052600436106100565763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166318160ddd811461005b57806370a0823114610080578063a9059cbb1461009f575b600080fd5b341561006657600080fd5b61006e6100d5565b60405190815260200160405180910390f35b341561008b57600080fd5b61006e600160a060020a03600435166100db565b34156100aa57600080fd5b6100c1600160a060020a03600435166024356100f6565b604051901515815260200160405180910390f35b60005481565b600160a060020a031660009081526001602052604090205490565b6000600160a060020a038316151561010d57600080fd5b600160a060020a033316600090815260016020526040902054610136908363ffffffff6101cc16565b600160a060020a03338116600090815260016020526040808220939093559085168152205461016b908363ffffffff6101de16565b600160a060020a0380851660008181526001602052604090819020939093559133909116907fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef9085905190815260200160405180910390a350600192915050565b6000828211156101d857fe5b50900390565b6000828201838110156101ed57fe5b93925050505600a165627a7a72305820d1dac5dcecc050eba6765d8f6b7a20f0d34b30d5faaf3abe75a81fc24cd458f80029",
-  "deployedBytecode": "0x6060604052600436106100565763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166318160ddd811461005b57806370a0823114610080578063a9059cbb1461009f575b600080fd5b341561006657600080fd5b61006e6100d5565b60405190815260200160405180910390f35b341561008b57600080fd5b61006e600160a060020a03600435166100db565b34156100aa57600080fd5b6100c1600160a060020a03600435166024356100f6565b604051901515815260200160405180910390f35b60005481565b600160a060020a031660009081526001602052604090205490565b6000600160a060020a038316151561010d57600080fd5b600160a060020a033316600090815260016020526040902054610136908363ffffffff6101cc16565b600160a060020a03338116600090815260016020526040808220939093559085168152205461016b908363ffffffff6101de16565b600160a060020a0380851660008181526001602052604090819020939093559133909116907fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef9085905190815260200160405180910390a350600192915050565b6000828211156101d857fe5b50900390565b6000828201838110156101ed57fe5b93925050505600a165627a7a72305820d1dac5dcecc050eba6765d8f6b7a20f0d34b30d5faaf3abe75a81fc24cd458f80029",
-  "sourceMap": "171:896:0:-;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "171:896:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;179:26:2;;;;;;;;;;;;;;;;;;;;;;;;;;;960:104:0;;;;;;;;;;-1:-1:-1;;;;;960:104:0;;;;;431:327;;;;;;;;;;-1:-1:-1;;;;;431:327:0;;;;;;;;;;;;;;;;;;;;;;;;179:26:2;;;;:::o;960:104:0:-;-1:-1:-1;;;;;1043:16:0;1013:15;1043:16;;;:8;:16;;;;;;;960:104::o;431:327::-;487:4;-1:-1:-1;;;;;507:17:0;;;;499:26;;;;;;-1:-1:-1;;;;;627:10:0;618:20;;;;;:8;:20;;;;;;:32;;643:6;618:32;:24;:32;:::i;:::-;-1:-1:-1;;;;;604:10:0;595:20;;;;;;:8;:20;;;;;;:55;;;;672:13;;;;;;;:25;;690:6;672:25;:17;:25;:::i;:::-;-1:-1:-1;;;;;656:13:0;;;;;;;:8;:13;;;;;;;:41;;;;:13;712:10;703:33;;;;;;729:6;;703:33;;;;;;;;;;;;;-1:-1:-1;749:4:0;431:327;;;;:::o;544:105:5:-;597:7;619:6;;;;612:14;;;;-1:-1:-1;639:5:5;;;544:105::o;653:124::-;706:7;733:5;;;751:6;;;;744:14;;;;771:1;653:124;-1:-1:-1;;;653:124:5:o",
+  "bytecode": "0x608060405234801561001057600080fd5b50610226806100206000396000f3006080604052600436106100565763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166318160ddd811461005b57806370a0823114610082578063a9059cbb146100a3575b600080fd5b34801561006757600080fd5b506100706100db565b60408051918252519081900360200190f35b34801561008e57600080fd5b50610070600160a060020a03600435166100e1565b3480156100af57600080fd5b506100c7600160a060020a03600435166024356100fc565b604080519115158252519081900360200190f35b60005481565b600160a060020a031660009081526001602052604090205490565b6000600160a060020a038316151561011357600080fd5b600160a060020a03331660009081526001602052604090205461013c908363ffffffff6101d216565b600160a060020a033381166000908152600160205260408082209390935590851681522054610171908363ffffffff6101e416565b600160a060020a038085166000818152600160209081526040918290209490945580518681529051919333909316927fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef92918290030190a350600192915050565b6000828211156101de57fe5b50900390565b6000828201838110156101f357fe5b93925050505600a165627a7a7230582038d97790618b79734ff7e8f6d661e076c0b89cfecb66ed59770f5b471d81354a0029",
+  "deployedBytecode": "0x6080604052600436106100565763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166318160ddd811461005b57806370a0823114610082578063a9059cbb146100a3575b600080fd5b34801561006757600080fd5b506100706100db565b60408051918252519081900360200190f35b34801561008e57600080fd5b50610070600160a060020a03600435166100e1565b3480156100af57600080fd5b506100c7600160a060020a03600435166024356100fc565b604080519115158252519081900360200190f35b60005481565b600160a060020a031660009081526001602052604090205490565b6000600160a060020a038316151561011357600080fd5b600160a060020a03331660009081526001602052604090205461013c908363ffffffff6101d216565b600160a060020a033381166000908152600160205260408082209390935590851681522054610171908363ffffffff6101e416565b600160a060020a038085166000818152600160209081526040918290209490945580518681529051919333909316927fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef92918290030190a350600192915050565b6000828211156101de57fe5b50900390565b6000828201838110156101f357fe5b93925050505600a165627a7a7230582038d97790618b79734ff7e8f6d661e076c0b89cfecb66ed59770f5b471d81354a0029",
+  "sourceMap": "171:896:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;171:896:0;;;;;;;",
+  "deployedSourceMap": "171:896:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;179:26:2;;8:9:-1;5:2;;;30:1;27;20:12;5:2;179:26:2;;;;;;;;;;;;;;;;;;;;960:104:0;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;960:104:0;-1:-1:-1;;;;;960:104:0;;;;;431:327;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;431:327:0;-1:-1:-1;;;;;431:327:0;;;;;;;;;;;;;;;;;;;;;;;;;179:26:2;;;;:::o;960:104:0:-;-1:-1:-1;;;;;1043:16:0;1013:15;1043:16;;;:8;:16;;;;;;;960:104::o;431:327::-;487:4;-1:-1:-1;;;;;507:17:0;;;;499:26;;;;;;-1:-1:-1;;;;;627:10:0;618:20;;;;;:8;:20;;;;;;:32;;643:6;618:32;:24;:32;:::i;:::-;-1:-1:-1;;;;;604:10:0;595:20;;;;;;:8;:20;;;;;;:55;;;;672:13;;;;;;;:25;;690:6;672:25;:17;:25;:::i;:::-;-1:-1:-1;;;;;656:13:0;;;;;;;:8;:13;;;;;;;;;:41;;;;703:33;;;;;;;656:13;;712:10;703:33;;;;;;;;;;;;;-1:-1:-1;749:4:0;431:327;;;;:::o;544:105:5:-;597:7;619:6;;;;612:14;;;;-1:-1:-1;639:5:5;;;544:105::o;653:124::-;706:7;733:5;;;751:6;;;;744:14;;;;771:1;653:124;-1:-1:-1;;;653:124:5:o",
   "source": "pragma solidity ^0.4.11;\n\n\nimport './ERC20Basic.sol';\nimport './SafeMath.sol';\n\n\n/**\n * @title Basic token\n * @dev Basic version of StandardToken, with no allowances.\n */\ncontract BasicToken is ERC20Basic {\n  using SafeMath for uint256;\n\n  mapping(address => uint256) balances;\n\n  /**\n  * @dev transfer token for a specified address\n  * @param _to The address to transfer to.\n  * @param _value The amount to be transferred.\n  */\n  function transfer(address _to, uint256 _value) returns (bool) {\n    require(_to != address(0));\n\n    // SafeMath.sub will throw if there is not enough balance.\n    balances[msg.sender] = balances[msg.sender].sub(_value);\n    balances[_to] = balances[_to].add(_value);\n    Transfer(msg.sender, _to, _value);\n    return true;\n  }\n\n  /**\n  * @dev Gets the balance of the specified address.\n  * @param _owner The address to query the the balance of.\n  * @return An uint256 representing the amount owned by the passed address.\n  */\n  function balanceOf(address _owner) constant returns (uint256 balance) {\n    return balances[_owner];\n  }\n\n}\n",
   "sourcePath": "/Users/studnev/audit/OZT-studnev/contracts/BasicToken.sol",
   "ast": {
@@ -132,7 +132,7 @@
       {
         "baseContracts": [
           {
-            "arguments": [],
+            "arguments": null,
             "baseName": {
               "contractScope": null,
               "id": 4,
@@ -345,8 +345,11 @@
                       "id": 21,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [],
-                      "referencedDeclaration": 1212,
+                      "overloadedDeclarations": [
+                        1214,
+                        1215
+                      ],
+                      "referencedDeclaration": 1214,
                       "src": "499:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -403,7 +406,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1209,
+                          "referencedDeclaration": 1211,
                           "src": "604:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -485,7 +488,7 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1209,
+                              "referencedDeclaration": 1211,
                               "src": "627:3:0",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -719,7 +722,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1209,
+                          "referencedDeclaration": 1211,
                           "src": "712:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1132,7 +1135,7 @@
       {
         "baseContracts": [
           {
-            "arguments": [],
+            "arguments": null,
             "baseName": {
               "contractScope": null,
               "id": 4,
@@ -1345,8 +1348,11 @@
                       "id": 21,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [],
-                      "referencedDeclaration": 1212,
+                      "overloadedDeclarations": [
+                        1214,
+                        1215
+                      ],
+                      "referencedDeclaration": 1214,
                       "src": "499:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -1403,7 +1409,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1209,
+                          "referencedDeclaration": 1211,
                           "src": "604:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1485,7 +1491,7 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1209,
+                              "referencedDeclaration": 1211,
                               "src": "627:3:0",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -1719,7 +1725,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1209,
+                          "referencedDeclaration": 1211,
                           "src": "712:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -2088,9 +2094,9 @@
   },
   "compiler": {
     "name": "solc",
-    "version": "0.4.21+commit.dfe3193c.Emscripten.clang"
+    "version": "0.4.23+commit.124ca40d.Emscripten.clang"
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-05-24T09:05:44.262Z"
+  "updatedAt": "2018-05-24T18:54:09.901Z"
 }
