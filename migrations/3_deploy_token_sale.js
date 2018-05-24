@@ -18,11 +18,11 @@ module.exports = function(deployer, network) {
                 break;
             case 'ropsten':
                 openingTime = now + 60;
-                closingTime =  Date.parse('2018-06-09 00:00 GMT').getTime();
+                closingTime =  Date.parse('2018-06-09 00:00 GMT')/1000;
                 break;
             case 'foundation':
-                openingTime = Date.parse('2018-05-26 00:00 GMT').getTime();
-                closingTime =  Date.parse('2018-06-09 00:00 GMT').getTime();
+                openingTime = Date.parse('2018-05-26 00:00 GMT')/1000;
+                closingTime =  Date.parse('2018-06-09 00:00 GMT')/1000;
                 break;
         }
 
