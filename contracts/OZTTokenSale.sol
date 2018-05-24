@@ -1,11 +1,24 @@
 pragma solidity 0.4.21;
 
 import 'zeppelin-solidity/contracts/crowdsale/validation/TimedCrowdsale.sol';
-import 'zeppelin-solidity/contracts/lifecycle/Destructible.sol';
 import 'zeppelin-solidity/contracts/lifecycle/Pausable.sol';
 
-
-contract OZTTokenSale is Destructible, Pausable, TimedCrowdsale {
+/**
+ * @title Crowdsale for OZT token
+ * @dev the crowdsale is based on Open Zeppelin implementation, adding the following functionality:
+ *   1) it is limited in time
+ *   2) owner can pause and resume the crowdsale if needed
+ *   3) the minimum amount of single sale is limited
+ *   4) tokens can be transfered to the recipient. It is used for 2 cases:
+ *     4.1) when buyer pay other cuurrency (BTC/LTC), he provides the ethereum wallet and the tokens are manualy transfered during the token
+ *       sale or after it
+ *     4.2) after the finish of crowdsale all unsold tokens are transfered to owner
+ *
+ *  To use the crowdsale, the following procedure applied:
+ *   1) contract is deployed, specifying time range, token address, rate ( token price ), wallet and minimum token same amount.
+ *   2) tokens in the amount of token sale volume are transfered to the contract
+ */
+contract OZTTokenSale is Pausable, TimedCrowdsale {
 
 
     // minimum amount of OZT tokens, allowed to buy
@@ -37,23 +50,14 @@ contract OZTTokenSale is Destructible, Pausable, TimedCrowdsale {
   }
 
   /*
-  * @dev destroy contract, send all tokens back to owner
+  * @dev transfer tokens
+  * @param _to token receiver
+  * @param _value token amount
   */
-  function destroy() onlyOwner public {
-    token.transfer(owner, token.balanceOf(this));
-    super.destroy();
+  function transferTokens(address _to, uint256 _value) onlyOwner public {
+    token.transfer(_to, _value);
   }
 
-  /*
-  * @dev destroy contract, send all tokens to recepient
-  * @param _recipient Token receiver
-  *
-  */
-  function destroyAndSend(address _recipient) onlyOwner public {
-    require(_recipient!=address(0));
-    token.transfer(_recipient, token.balanceOf(this));
-    super.destroyAndSend(_recipient);
-  }
 
 
 }

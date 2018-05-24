@@ -26,7 +26,6 @@ Note:  scripts are to be run by the contract's owner
 
 **node script/transfer_tokens** - transfer tokens from the OZT Token owner to address
 
-
 **node script/batch_assign_tokens** - distribute tokens from the OZT Token owner to the list of addresses from CSV file
 
 
@@ -72,6 +71,21 @@ After server started, you can compile, run migrations and tests
 ```
 $ truffle test
 Using network 'development'.
+
+  Contract: OZTTokenSale
+    ✓ should be deployed (5003ms)
+    ✓ should have all properties set up (147ms)
+    ✓ should have tokens to sell (88ms)
+    ✓ should sell tokens (161ms)
+    ✓ should transfer tokens manually (87ms)
+    ✓ should allow transfer tokens manually only to owner (154ms)
+    ✓ should pause / resume (163ms)
+    ✓ should allow pause only to owner
+    ✓ should not sell after finish (5005ms)
+
+
+  9 passing (11s)
+
 
 ```
 

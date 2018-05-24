@@ -14,7 +14,7 @@ module.exports = function(deployer, network) {
         switch(network){
             case 'development':
                 openingTime = now + 3;
-                closingTime = now + 30;
+                closingTime = now + 10;
                 break;
             case 'ropsten':
                 openingTime = now + 60;

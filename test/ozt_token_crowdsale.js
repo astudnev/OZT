@@ -10,6 +10,7 @@ function delay(t) {
 contract('OZTTokenSale', function(accounts) {
 
     var owner = accounts[0];
+    var total_amount = 70*1e6*1e18;
 
     it("should be deployed", function (done) {
 
@@ -70,17 +71,16 @@ contract('OZTTokenSale', function(accounts) {
 
         var crowdsale, token;
 
-        var amount = 70*1e6*1e18;
         OZTTokenSale.deployed().then(function (instance) {
             crowdsale = instance;
             return crowdsale.token();
         }).then( function(instance){
             token = OZTToken.at(instance);
-            return token.transfer(crowdsale.address, amount, {from: owner});
+            return token.transfer(crowdsale.address, total_amount, {from: owner});
         }).then( function(){
             return token.balanceOf(crowdsale.address);
         }).then( function(result){
-            assert.equal(result.toNumber(), amount);
+            assert.equal(result.toNumber(), total_amount);
             done();
         });
 
@@ -120,45 +120,135 @@ contract('OZTTokenSale', function(accounts) {
             return crowdsale.weiRaised();
         }).then( function(value){
             assert.equal(value, amt);
+            return token.balanceOf(crowdsale.address);
+        }).then( function(value){
+            assert.equal(value, total_amount-amt*rate);
             done();
         });
 
     });
 
-    /*
-    it("should grant bonus tokens to affiliate", function (done) {
+    it("should transfer tokens manually", function (done) {
 
-        var crowdsale, token, token_balance, cpa_token, cpa_token_balance;
-        const purchaser = accounts[0];
-        const affiliate = accounts[4];
+        var crowdsale, token;
+        const purchaser = accounts[2];
+        const amount = web3.toWei(1, "ether");
 
-        const amt = web3.toWei(0.00006, "ether");
-
-        CpaCrowdsale.deployed().then(function (instance) {
+        OZTTokenSale.deployed().then(function (instance) {
             crowdsale = instance;
             return crowdsale.token();
         }).then( function(instance){
-            token = MintableToken.at(instance);
+            token = OZTToken.at(instance);
             return token.balanceOf(purchaser);
         }).then( function(value){
-            token_balance = value.toNumber();
-            return crowdsale.cpa_token();
-        }).then( function(instance){
-            cpa_token = MintableBonusToken.at(instance);
-            return cpa_token.balanceOf(affiliate);
-        }).then( function(value){
-            cpa_token_balance = value.toNumber();
-            return crowdsale.sendTransaction({from: purchaser, value: amt, gas: 150000, data: affiliate});
+            assert.equal(0, value.toNumber());
+            return crowdsale.transferTokens(purchaser, amount, {from: owner});
         }).then( function(result){
-            return token.totalSupply();
+            return token.balanceOf(purchaser);
         }).then( function(value){
-            assert.equal(value.toNumber(), parseInt(amt) + parseInt(token_balance));
-            return cpa_token.balanceOf(affiliate);
+            assert.equal(value, amount);
+            done();
+        });
+    });
+
+
+    it("should allow transfer tokens manually only to owner", function (done) {
+
+        var crowdsale, token;
+        const purchaser = accounts[2];
+        const amount = web3.toWei(1, "ether");
+
+        OZTTokenSale.deployed().then(function (instance) {
+            crowdsale = instance;
+            return crowdsale.token();
+        }).then( function(instance){
+            token = OZTToken.at(instance);
+            return crowdsale.transferTokens(purchaser, amount, {from: purchaser});
+        }).then( function(){
+            assert.fail("Exception expected");
+        }).catch(function(error) {
+            done();
+        });
+    });
+
+
+    it("should pause / resume", function (done) {
+
+        var crowdsale, token, rate;
+        const purchaser = accounts[3];
+        const amt = web3.toWei(0.3, "ether");
+
+        OZTTokenSale.deployed().then(function (instance) {
+            crowdsale = instance;
+            return crowdsale.token();
+        }).then( function(instance){
+            token = OZTToken.at(instance);
+            return token.balanceOf(purchaser);
         }).then( function(value){
-            assert.equal(value.toNumber(), cpa_token_balance + amt);
+            assert.equal(0, value.toNumber());
+            return crowdsale.rate();
+        }).then( function(result){
+            rate = result.toNumber();
+            return crowdsale.pause({from: owner});
+        }).then( function(result){
+            return crowdsale.sendTransaction({from: purchaser, value: amt, gas: 150000});
+        }).then( function(){
+            assert.fail("Exception expected");
+        }).catch(function(error) {
+            return crowdsale.unpause({from: owner});
+        }).then( function(result){
+            return crowdsale.sendTransaction({from: purchaser, value: amt, gas: 150000});
+        }).then( function(result){
+            var log = result.logs[0];
+
+            assert.equal(log.event, 'TokenPurchase');
+            assert.equal(log.address , crowdsale.address);
+            assert.equal(log.args.value.toNumber() , amt);
+            assert.equal(log.args.amount.toNumber() , amt*rate);
+            assert.equal(log.args.beneficiary, purchaser);
+            assert.equal(log.args.purchaser, purchaser);
+
+            return token.balanceOf(purchaser);
+        }).then( function(value){
+            assert.equal(value, amt*rate);
             done();
         });
 
     });
-*/
+
+    it("should allow pause only to owner", function (done) {
+
+        var crowdsale;
+        const purchaser = accounts[2];
+
+        OZTTokenSale.deployed().then(function (instance) {
+            crowdsale = instance;
+            return crowdsale.pause({from: purchaser});
+        }).then( function(){
+            assert.fail("Exception expected");
+        }).catch(function(error) {
+            done();
+        });
+    });
+
+
+    it("should not sell after finish", function (done) {
+
+        var crowdsale;
+        const purchaser = accounts[5];
+
+        OZTTokenSale.deployed().then(function (instance) {
+            crowdsale = instance;
+            return delay(5000); // delay because the crowdsale finish in 10 seconds
+        }).then( function(){
+            return crowdsale.sendTransaction({from: purchaser, value: amt, gas: 150000});
+        }).then( function(){
+            assert.fail("Exception expected");
+        }).catch(function(error) {
+            done();
+        });
+
+    });
+
+
 });
