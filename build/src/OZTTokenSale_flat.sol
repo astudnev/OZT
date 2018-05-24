@@ -1,4 +1,4 @@
-pragma solidity ^0.4.23;
+pragma solidity ^0.4.13;
 
 contract Crowdsale {
   using SafeMath for uint256;
@@ -272,22 +272,6 @@ contract Ownable {
 
 }
 
-contract Destructible is Ownable {
-
-  function Destructible() public payable { }
-
-  /**
-   * @dev Transfers the current balance to the owner and terminates the contract.
-   */
-  function destroy() onlyOwner public {
-    selfdestruct(owner);
-  }
-
-  function destroyAndSend(address _recipient) onlyOwner public {
-    selfdestruct(_recipient);
-  }
-}
-
 contract Pausable is Ownable {
   event Pause();
   event Unpause();
@@ -342,7 +326,7 @@ contract ERC20 is ERC20Basic {
   event Approval(address indexed owner, address indexed spender, uint256 value);
 }
 
-contract OZTTokenSale is Destructible, Pausable, TimedCrowdsale {
+contract OZTTokenSale is Pausable, TimedCrowdsale {
 
 
     // minimum amount of OZT tokens, allowed to buy
@@ -374,23 +358,14 @@ contract OZTTokenSale is Destructible, Pausable, TimedCrowdsale {
   }
 
   /*
-  * @dev destroy contract, send all tokens back to owner
+  * @dev transfer tokens
+  * @param _to token receiver
+  * @param _value token amount
   */
-  function destroy() onlyOwner public {
-    token.transfer(owner, token.balanceOf(this));
-    super.destroy();
+  function transferTokens(address _to, uint256 _value) onlyOwner public {
+    token.transfer(_to, _value);
   }
 
-  /*
-  * @dev destroy contract, send all tokens to recepient
-  * @param _recipient Token receiver
-  *
-  */
-  function destroyAndSend(address _recipient) onlyOwner public {
-    require(_recipient!=address(0));
-    token.transfer(_recipient, token.balanceOf(this));
-    super.destroyAndSend(_recipient);
-  }
 
 
 }

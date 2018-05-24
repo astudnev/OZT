@@ -38,7 +38,7 @@ Note:  scripts are to be run by the contract's owner
 ### Ropsten Blockchain Network
 
 * OZT Token: [0xc47f91d5acc5bc644bb2829c4ecd49a8c2dd7f1c](https://ropsten.etherscan.io/token/0xc47f91d5acc5bc644bb2829c4ecd49a8c2dd7f1c)   
-
+* OZT Token Sale: [0x7726df45d187a9880bbdc1e1bb720b331fd23809](https://ropsten.etherscan.io/token/0x7726df45d187a9880bbdc1e1bb720b331fd23809)   
 # Notes for Developers
 
 ## Installation

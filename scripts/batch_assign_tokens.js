@@ -1,7 +1,6 @@
 const cli = require('readline-sync');
 const Connection = require('./eth_connection');
-const ozt_token = require('./contracts/ozt_token');
-const request = require('request');
+const ozt_token = require('../build/contracts/OZTToken.json');
 const fs = require('fs');
 
 const environment = 'ropsten'; // ropsten/foundation, change to foundation to deploy to real
