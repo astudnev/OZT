@@ -26,16 +26,16 @@ fs.readFile(filename, 'utf8',function(err,data){
        if(row[0].indexOf('0x')!=0)
            continue;
        addresses.push(row[0]);
-       amounts.push( parseInt(row[1],10));
+       amounts.push( connection.web3.toWei(row[1]) );
        defrost_classes.push(parseInt(row[2],10));
    }
 
     for(var i=0;i<addresses.length;i++){
-       console.log(addresses[i] + ' <- ' + amounts[i] + ' OZT');
-        total += amounts[i];
+       console.log(addresses[i] + ' <- ' + connection.web3.fromWei(amounts[i]) + ' OZT (' +  amounts[i] +' wei )');
+       total += amounts[i];
     }
 
-   console.log( "Batch transactions: "+ addresses.length + ', total amount '+ total + ' OZT');
+   console.log( "Batch transactions: "+ addresses.length + ', total amount '+ connection.web3.fromWei(total) + ' OZT ('+total+ ' wei )');
 
     var gasprice = cli.question('Enter gas price in gwei:');
     var yesno = cli.question('Enter Yes! to make token transfers in '+environment+': ');
